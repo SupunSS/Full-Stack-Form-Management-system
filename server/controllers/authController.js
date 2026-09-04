@@ -3,7 +3,6 @@ const crypto = require('crypto');
 const User = require('../models/User');
 const { generateAccessToken, generateRefreshToken } = require('../utils/generateTokens');
 
-// POST /api/auth/register  (customer self-registration)
 const register = async (req, res) => {
   try {
     const { email, password, confirmPassword } = req.body;

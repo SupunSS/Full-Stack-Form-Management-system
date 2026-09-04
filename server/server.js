@@ -9,6 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/submissions', require('./routes/submissionRoutes'));
 
 // Test route
 app.get('/api/ping', (req, res) => {
