@@ -116,6 +116,8 @@ Responses: `201` created · `400` missing email · `401` no/invalid token · `40
 
 > The very first admin account can't be created through this endpoint (nothing to authenticate with yet). Run `npm run seed:admin` once to create it directly via a script — see Setup Instructions above.
 
+> **Note on "super admin":** the spec describes this route as restricted to "a super admin or a seeded admin." This implementation treats any authenticated user with role `ADMIN` as authorized to create further admins, since no distinct super-admin tier is defined elsewhere in the spec. This was a deliberate simplification — introducing a separate super-admin role would require an additional schema field and its own guard, which felt like scope beyond what was asked for.
+
 ---
 
 ### Submissions
@@ -126,9 +128,9 @@ Responses: `201` created · `400` missing email · `401` no/invalid token · `40
 Request body:
 ```json
 {
-  "firstName": "supun",
-  "lastName": "sankalpa",
-  "email": "supun.sankalpa@test.com",
+  "firstName": "John",
+  "lastName": "Silva",
+  "email": "john.silva@test.com",
   "gender": "MALE",
   "mobileNumber": "0771234567",
   "address": "123 Galle Road, Colombo",
